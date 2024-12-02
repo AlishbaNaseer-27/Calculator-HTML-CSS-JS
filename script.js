@@ -54,11 +54,17 @@ function updateDisplay(isResult = false) {
         resultElement.textContent = '';
     }
 }
+
+
+
 function calculatePercentage() {
     try {
         if (currentExpression === '') return;
-        result = (eval(currentExpression) / 100).toString();
-        currentExpression += '' + result;
+
+        const evaluatedExpression = eval(currentExpression);
+
+        result = (evaluatedExpression / 100).toString();
+
         updateDisplay(true);
     } catch (error) {
         result = 'Error';
